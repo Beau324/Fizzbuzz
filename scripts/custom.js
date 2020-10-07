@@ -1,4 +1,4 @@
-﻿$(function () {
+﻿(function () {
 
     $('#contact_form').validator();
 
@@ -26,15 +26,17 @@
     });
 });
 function fizzbuzz() {
-    let userNum1 = Number(document.getElementById("fizz1").value);
-    let userNum2 = Number(document.getElementById("fizz2").value);
+    let userNum1 = parseInt(document.getElementById("fizz1").value);
+    let userNum2 = parseInt(document.getElementById("fizz2").value);
+    let rangeStart = parseInt(document.getElementById("start").value);
+    let rangeEnd = parseInt(document.getElementById("end").value);
     let newArr = [];
-    for (i = 1; i <= 100; i++) {
+    for (i = rangeStart; i <= rangeEnd; i++) {
         if (i % userNum1 == 0 && i % userNum2 == 0) {
-            newArr.push("<span class ='fizzbuzz'>Fizzbuzz</span>");
+            newArr.push("<span class ='fizzbuzz fizzbuzzGradient'>Fizzbuzz</span>");
         }
         else if (i % userNum1 == 0) newArr.push("<span class = 'fizz'>Fizz</span>");
-        else if (i % userNum2 == 0) newArr.push("<span class='buzz'>Buzz</span>");
+        else if (i % userNum2 == 0) newArr.push("<span class= 'buzz'>Buzz</span>");
         else newArr.push(i);
     }
     let resultfb = newArr.join(", ");

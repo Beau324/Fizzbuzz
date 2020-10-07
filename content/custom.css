@@ -1,0 +1,16 @@
+﻿body {
+}
+.fizzbuzzGradient {
+    font-size: 1em;
+    background: -webkit-linear-gradient(deepskyblue, deepskyblue, chartreuse);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.fizz {
+    color: deepskyblue;
+    text-shadow: 1px 1px 1px #000;
+}
+.buzz {
+    color: chartreuse;
+    text-shadow: 1px 1px 1px #000;
+}

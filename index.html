@@ -7,14 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel ="shortcut icon" href="images/customIcon.ico" />
+    <link rel="shortcut icon" href="images/customIcon.ico" />
     <title>Fizzbuzz</title>
 
     <!-- Bootstrap core CSS -->
-
+    <link href="content/custom.css" rel="stylesheet" />
     <link href="content/bootstrap.min.css" rel="stylesheet" />
     <!-- Custom styles for this template -->
     <link href="content/scrolling-nav.css" rel="stylesheet" />
+    <link href="content/prism.css" rel="stylesheet" />
 </head>
 
 <body id="page-top">
@@ -70,14 +71,72 @@
     <section id="services" class="bg-light">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <h2>Demo</h2>
-                    <h3>Fizzbuzz</h3>
-                    <input type="number" id="fizz1" />
-                    <input type="number" id="fizz2" />
-                    <button onclick="fizzbuzz()">fizzbuzz</button>
-                    <span id="resultfb"></span>
+                <div class="col">
+                    <h2 class="text-center">Technologies Used</h2>
+                    <div class="row">
+                        <div class="card-group">
+                            <div class="card">
+                                <img src="images/javascriptIcon.png" class="card-img-top" alt="..."/>
+                                <div class="card-body">
+                                    <h5 class="card-title">Javascript</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Javascript Used</a>
+                                </div>
+                            </div><div class="card">
+                                <img src="images/htmlIcon.png" class="card-img-top" alt="..."/>
+                                <div class="card-body">
+                                    <h5 class="card-title">HTML 5</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">HTML5 Used</a>
+                                </div>
+                            </div><div class="card">
+                                <img src="images/css3Icon.png" class="card-img-top" alt="..."/>
+                                <div class="card-body">
+                                    <h5 class="card-title">CSS 3</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">CSS3 Used</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <div class="col-3 offset-2">
+                    <h2 class="text-center ">Demo</h2>
+                    <!--<h3>Fizzbuzz</h3>-->
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="">Multiples</span>
+                        </div>
+                        <input type="number" id="fizz1">
+                        <input type="number" id="fizz2">
+
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="">Range</span>
+                        </div>
+                        <input type="number" id="start">
+                        <input type="number" id="end">
+                    </div>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="fizzbuzz()">fizzbuzz</button>
+                </div>
+            </div>
+        </div>
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <span id="resultfb"></span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -134,7 +193,7 @@
     <!-- Footer -->
     <footer class="py-5 bg-dark">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+            <p class="m-0 text-center text-white">Copyright &copy; Fizzbuzz 2020</p>
         </div>
         <!-- /.container -->
     </footer>
@@ -152,6 +211,7 @@
 
     <!-- Custom JavaScript for this theme -->
     <script src="scripts/scrolling-nav.js"></script>
+    <script src="scripts/prism.js"></script>
     <script>
         const btn = document.getElementById('button');
 
