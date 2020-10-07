@@ -76,21 +76,21 @@
                     <div class="row">
                         <div class="card-group">
                             <div class="card">
-                                <img src="images/javascriptIcon.png" class="card-img-top" alt="..."/>
+                                <img src="images/javascriptIcon.png" class="card-img-top" alt="..." />
                                 <div class="card-body">
                                     <h5 class="card-title">Javascript</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     <a href="#" class="btn btn-primary">Javascript Used</a>
                                 </div>
                             </div><div class="card">
-                                <img src="images/htmlIcon.png" class="card-img-top" alt="..."/>
+                                <img src="images/htmlIcon.png" class="card-img-top" alt="..." />
                                 <div class="card-body">
                                     <h5 class="card-title">HTML 5</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     <a href="#" class="btn btn-primary">HTML5 Used</a>
                                 </div>
                             </div><div class="card">
-                                <img src="images/css3Icon.png" class="card-img-top" alt="..."/>
+                                <img src="images/css3Icon.png" class="card-img-top" alt="..." />
                                 <div class="card-body">
                                     <h5 class="card-title">CSS 3</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -118,7 +118,7 @@
                         <input type="number" id="start">
                         <input type="number" id="end">
                     </div>
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="fizzbuzz()">fizzbuzz</button>
+                    <button class="btn btn-primary" id="fizzBtn">fizzbuzz</button>
                 </div>
             </div>
         </div>
@@ -197,7 +197,21 @@
         </div>
         <!-- /.container -->
     </footer>
-
+    <script>
+        document.getElementById("fizzBtn").addEventListener('click', function () {
+            let userNum1 = parseInt(document.getElementById("fizz1").value);
+            let userNum2 = parseInt(document.getElementById("fizz2").value);
+            let rangeStart = parseInt(document.getElementById("start").value);
+            let rangeEnd = parseInt(document.getElementById("end").value);
+            if (isNaN(userNum1) || isNaN(userNum2) || isNaN(rangeStart) || isNaN(rangeEnd)) {
+                alert("Need numbers!");
+            }
+            else {
+                fizzbuzz(userNum1, userNum2, rangeStart, rangeEnd);
+                $("#myModal").modal();
+            }
+        })
+    </script>
     <!-- Bootstrap core JavaScript -->
     <script src="scripts/custom.js"></script>
     <script src="scripts/jquery.min.js"></script>
