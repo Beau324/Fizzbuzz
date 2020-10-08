@@ -72,6 +72,7 @@
   <ItemGroup>
     <Content Include="content\bootstrap.min.css" />
     <Content Include="content\custom.css" />
+    <Content Include="content\developerIcon.png" />
     <Content Include="content\prism.css" />
     <Content Include="content\scrolling-nav.css" />
     <Content Include="images\css3Icon.png" />

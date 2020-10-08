@@ -1,6 +1,4 @@
-﻿body {
-}
-.fizzbuzzGradient {
+﻿.fizzbuzzGradient {
     font-size: 1em;
     background: -webkit-linear-gradient(deepskyblue, deepskyblue, chartreuse);
     -webkit-background-clip: text;

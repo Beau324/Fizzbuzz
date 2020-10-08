@@ -27,6 +27,9 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <a class="btn" href="https://github.com/Beau324/Fizzbuzz" target="_blank"><img src="https://img.icons8.com/windows/32/000000/github.png" /></a>
+            <a class="btn" href="https://beau-cunningham.netlify.app" target="_blank"><img src="https://img.icons8.com/windows/32/000000/developer.png" /></a>
+            
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -79,25 +82,536 @@
                                 <img src="images/javascriptIcon.png" class="card-img-top" alt="..." />
                                 <div class="card-body">
                                     <h5 class="card-title">Javascript</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Javascript Used</a>
+                                    <p class="card-text">The button below will open a modal containing the javascript used to solve this coding challenge.</p>
+                                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#jsModal">Javascript Used</a>
                                 </div>
                             </div><div class="card">
                                 <img src="images/htmlIcon.png" class="card-img-top" alt="..." />
                                 <div class="card-body">
                                     <h5 class="card-title">HTML 5</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">HTML5 Used</a>
+                                    <p class="card-text">The button below will open a modal containing the html used to make this web page.</p>
+                                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#htmlModal">HTML5 Used</a>
                                 </div>
                             </div><div class="card">
                                 <img src="images/css3Icon.png" class="card-img-top" alt="..." />
                                 <div class="card-body">
                                     <h5 class="card-title">CSS 3</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">CSS3 Used</a>
+                                    <p class="card-text">The button below will open a modal containing the css used to style this web page.</p>
+                                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#cssModal">CSS3 Used</a>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div id="jsModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog modal-lg">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Modal Header</h4>
+                            </div>
+                            <div class="modal-body">
+<pre>
+    <code class="language-js">
+        (function () {
+
+        $('#contact_form').validator();
+
+        $('#contact_form').on('submit', function (e) {
+        if (!e.isDefaultPrevented()) {
+        var url = "contact_form/contact_form.php";
+
+        $.ajax({
+        type: "POST",
+        url: url,
+        data: $(this).serialize(),
+        success: function (data) {
+        var messageAlert = 'alert-' + data.type;
+        var messageText = data.message;
+
+        var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
+        if (messageAlert && messageText) {
+        $('#contact_form').find('.messages').html(alertBox);
+        $('#contact_form')[0].reset();
+        }
+        }
+        });
+        return false;
+        }
+        });
+        });
+        function fizzbuzz() {
+        let userNum1 = parseInt(document.getElementById("fizz1").value);
+        let userNum2 = parseInt(document.getElementById("fizz2").value);
+        let rangeStart = parseInt(document.getElementById("start").value);
+        let rangeEnd = parseInt(document.getElementById("end").value);
+        let newArr = [];
+        for (i = rangeStart; i <= rangeEnd; i++) {
+        if (i % userNum1 == 0 && i % userNum2 == 0) {
+        newArr.push("<span class='fizzbuzz fizzbuzzGradient'>Fizzbuzz</span>");
+        }
+        else if (i % userNum1 == 0) newArr.push("<span class='fizz'>Fizz</span>");
+        else if (i % userNum2 == 0) newArr.push("<span class='buzz'>Buzz</span>");
+        else newArr.push(i);
+        }
+        let resultfb = newArr.join(", ");
+        document.getElementById("resultfb").innerHTML = `<b>${resultfb}</b>`;
+        }
+    </code>
+</pre>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="htmlModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog modal-xl">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Modal Header</h4>
+                            </div>
+                            <div class="modal-body">
+<pre>
+    <code class="language-html">
+        &lt!DOCTYPE html&gt
+        &lthtml lang="en"&gt
+
+        &lthead&gt
+
+        &ltmeta charset="utf-8"&gt
+        &ltmeta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&gt
+        &ltmeta name="description" content=""&gt
+        &ltmeta name="author" content=""&gt
+        &ltlink rel="shortcut icon" href="images/customIcon.ico" /&gt
+        &lttitle&gtFizzbuzz&lt/title&gt
+
+        &lt!-- Bootstrap core CSS --&gt
+        &ltlink href="content/custom.css" rel="stylesheet" /&gt
+        &ltlink href="content/bootstrap.min.css" rel="stylesheet" /&gt
+        &lt!-- Custom styles for this template --&gt
+        &ltlink href="content/scrolling-nav.css" rel="stylesheet" /&gt
+        &ltlink href="content/prism.css" rel="stylesheet" /&gt
+        &lt/head&gt
+
+        &ltbody id="page-top"&gt
+
+        &lt!-- Navigation --&gt
+        &ltnav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav"&gt
+        &ltdiv class="container"&gt
+        &lta class="navbar-brand js-scroll-trigger" href="#page-top"&gtFizzBuzz&lt/a&gt
+        &ltbutton class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"&gt
+        &ltspan class="navbar-toggler-icon"&gt&lt/span&gt
+        &lt/button&gt
+        &lta class="btn" href="https://github.com/Beau324/Fizzbuzz" target="_blank"&gt&ltimg src="https://img.icons8.com/windows/32/000000/github.png" /&gt&lt/a&gt
+        &lta class="btn" href="https://beau-cunningham.netlify.app" target="_blank"&gt&ltimg src="https://img.icons8.com/windows/32/000000/developer.png" /&gt&lt/a&gt
+
+        &ltdiv class="collapse navbar-collapse" id="navbarResponsive"&gt
+        &ltul class="navbar-nav ml-auto"&gt
+        &ltli class="nav-item"&gt
+        &lta class="nav-link js-scroll-trigger" href="#about"&gtAbout&lt/a&gt
+        &lt/li&gt
+        &ltli class="nav-item"&gt
+        &lta class="nav-link js-scroll-trigger" href="#services"&gtDemo&lt/a&gt
+        &lt/li&gt
+        &ltli class="nav-item"&gt
+        &lta class="nav-link js-scroll-trigger" href="#contact"&gtContact&lt/a&gt
+        &lt/li&gt
+        &lt/ul&gt
+        &lt/div&gt
+        &lt/div&gt
+        &lt/nav&gt
+
+        &ltheader class="bg-primary text-white"&gt
+        &ltdiv class="container text-center"&gt
+        &lth1&gtWelcome to Fizzbuzz&lt/h1&gt
+        &ltp class="lead"&gtAn industry standard challenge with UI/UX implemented&lt/p&gt
+        &lt/div&gt
+        &lt/header&gt
+
+        &ltsection id="about"&gt
+        &ltdiv class="container"&gt
+        &ltdiv class="row"&gt
+        &ltdiv class="col-lg-8 mx-auto"&gt
+        &lth2&gtAbout this challenge&lt/h2&gt
+        &ltp class="lead"&gtThe "Fizz-Buzz test" is an interview question designed to help filter out the 99.5% of programming job candidates who can't seem to program their way out of a wet paper bag. The text of the programming assignment is as follows:&lt/p&gt
+        &ltul&gt
+        &ltli&gtWrite a program that prints the numbers from 1 to 100. &lt/li&gt
+        &ltli&gtFor multiples of three print “Fizz” instead of the number.&lt/li&gt
+        &ltli&gtFor the multiples of five print “Buzz” instead of the number.&lt/li&gt
+        &ltli&gtFor numbers which are multiples of both three and five print “FizzBuzz”.&lt/li&gt
+        &lt/ul&gt
+        &ltp class="lead"&gtI took it a step further, I allow you to set the multiples and the range.&lt/p&gt
+        &lt/div&gt
+        &lt/div&gt
+        &lt/div&gt
+        &lt/section&gt
+
+        &ltsection id="services" class="bg-light"&gt
+        &ltdiv class="container"&gt
+        &ltdiv class="row"&gt
+        &ltdiv class="col"&gt
+        &lth2 class="text-center"&gtTechnologies Used&lt/h2&gt
+        &ltdiv class="row"&gt
+        &ltdiv class="card-group"&gt
+        &ltdiv class="card"&gt
+        &ltimg src="images/javascriptIcon.png" class="card-img-top" alt="..." /&gt
+        &ltdiv class="card-body"&gt
+        &lth5 class="card-title"&gtJavascript&lt/h5&gt
+        &ltp class="card-text"&gtSome quick example text to build on the card title and make up the bulk of the card's content.&lt/p&gt
+        &lta href="#" class="btn btn-primary" data-toggle="modal" data-target="#jsModal"&gtJavascript Used&lt/a&gt
+        &lt/div&gt
+        &lt/div&gt&ltdiv class="card"&gt
+        &ltimg src="images/htmlIcon.png" class="card-img-top" alt="..." /&gt
+        &ltdiv class="card-body"&gt
+        &lth5 class="card-title"&gtHTML 5&lt/h5&gt
+        &ltp class="card-text"&gtSome quick example text to build on the card title and make up the bulk of the card's content.&lt/p&gt
+        &lta href="#" class="btn btn-primary" data-toggle="modal" data-target="#htmlModal"&gtHTML5 Used&lt/a&gt
+        &lt/div&gt
+        &lt/div&gt&ltdiv class="card"&gt
+        &ltimg src="images/css3Icon.png" class="card-img-top" alt="..." /&gt
+        &ltdiv class="card-body"&gt
+        &lth5 class="card-title"&gtCSS 3&lt/h5&gt
+        &ltp class="card-text"&gtSome quick example text to build on the card title and make up the bulk of the card's content.&lt/p&gt
+        &lta href="#" class="btn btn-primary" data-toggle="modal" data-target="#cssModal"&gtCSS3 Used&lt/a&gt
+        &lt/div&gt
+        &lt/div&gt
+        &lt/div&gt
+        &lt/div&gt
+        &lt/div&gt
+        &ltdiv id="jsModal" class="modal fade" role="dialog"&gt
+        &ltdiv class="modal-dialog"&gt
+
+        &lt!-- Modal content--&gt
+        &ltdiv class="modal-content"&gt
+        &ltdiv class="modal-header"&gt
+        &ltbutton type="button" class="close" data-dismiss="modal"&gt&times;&lt/button&gt
+        &lth4 class="modal-title"&gtModal Header&lt/h4&gt
+        &lt/div&gt
+        &ltdiv class="modal-body"&gt
+        &ltpre&gt
+        &ltcode class="language-js"&gt
+        (function () {
+
+        $('#contact_form').validator();
+
+        $('#contact_form').on('submit', function (e) {
+        if (!e.isDefaultPrevented()) {
+        var url = "contact_form/contact_form.php";
+
+        $.ajax({
+        type: "POST",
+        url: url,
+        data: $(this).serialize(),
+        success: function (data) {
+        var messageAlert = 'alert-' + data.type;
+        var messageText = data.message;
+
+        var alertBox = '&ltdiv class="alert ' + messageAlert + ' alert-dismissable"&gt&ltbutton type="button" class="close" data-dismiss="alert" aria-hidden="true"&gt&times;&lt/button&gt' + messageText + '&lt/div&gt';
+        if (messageAlert && messageText) {
+        $('#contact_form').find('.messages').html(alertBox);
+        $('#contact_form')[0].reset();
+        }
+        }
+        });
+        return false;
+        }
+        });
+        });
+        function fizzbuzz() {
+        let userNum1 = parseInt(document.getElementById("fizz1").value);
+        let userNum2 = parseInt(document.getElementById("fizz2").value);
+        let rangeStart = parseInt(document.getElementById("start").value);
+        let rangeEnd = parseInt(document.getElementById("end").value);
+        let newArr = [];
+        for (i = rangeStart; i &lt= rangeEnd; i++) {
+        if (i % userNum1 == 0 && i % userNum2 == 0) {
+        newArr.push("&ltspan class='fizzbuzz fizzbuzzGradient'&gtFizzbuzz&lt/span&gt");
+        }
+        else if (i % userNum1 == 0) newArr.push("&ltspan class='fizz'&gtFizz&lt/span&gt");
+        else if (i % userNum2 == 0) newArr.push("&ltspan class='buzz'&gtBuzz&lt/span&gt");
+        else newArr.push(i);
+        }
+        let resultfb = newArr.join(", ");
+        document.getElementById("resultfb").innerHTML = `&ltb&gt${resultfb}&lt/b&gt`;
+        }
+        &lt/code&gt
+        &lt/pre&gt
+        &lt/div&gt
+        &ltdiv class="modal-footer"&gt
+        &ltbutton type="button" class="btn btn-default" data-dismiss="modal"&gtClose&lt/button&gt
+        &lt/div&gt
+        &lt/div&gt
+
+        &lt/div&gt
+        &lt/div&gt
+        &ltdiv id="htmlModal" class="modal fade" role="dialog"&gt
+        &ltdiv class="modal-dialog"&gt
+
+        &lt!-- Modal content--&gt
+        &ltdiv class="modal-content"&gt
+        &ltdiv class="modal-header"&gt
+        &ltbutton type="button" class="close" data-dismiss="modal"&gt&times;&lt/button&gt
+        &lth4 class="modal-title"&gtModal Header&lt/h4&gt
+        &lt/div&gt
+        &ltdiv class="modal-body"&gt
+        &ltpre&gt
+        &ltcode class="language-html"&gt
+
+        &lt/code&gt
+        &lt/pre&gt
+        &lt/div&gt
+        &ltdiv class="modal-footer"&gt
+        &ltbutton type="button" class="btn btn-default" data-dismiss="modal"&gtClose&lt/button&gt
+        &lt/div&gt
+        &lt/div&gt
+
+        &lt/div&gt
+        &lt/div&gt
+        &ltdiv id="cssModal" class="modal fade" role="dialog"&gt
+        &ltdiv class="modal-dialog"&gt
+
+        &lt!-- Modal content--&gt
+        &ltdiv class="modal-content"&gt
+        &ltdiv class="modal-header"&gt
+        &ltbutton type="button" class="close" data-dismiss="modal"&gt&times;&lt/button&gt
+        &lth4 class="modal-title"&gtModal Header&lt/h4&gt
+        &lt/div&gt
+        &ltdiv class="modal-body"&gt
+        &ltpre&gt
+        &ltcode class="language-css"&gt
+        .fizzbuzzGradient {
+        font-size: 1em;
+        background: -webkit-linear-gradient(deepskyblue, deepskyblue, chartreuse);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        }
+        .fizz {
+        color: deepskyblue;
+        text-shadow: 1px 1px 1px #000;
+        }
+        .buzz {
+        color: chartreuse;
+        text-shadow: 1px 1px 1px #000;
+        }
+
+        &lt/code&gt
+        &lt/pre&gt
+        &lt/div&gt
+        &ltdiv class="modal-footer"&gt
+        &ltbutton type="button" class="btn btn-default" data-dismiss="modal"&gtClose&lt/button&gt
+        &lt/div&gt
+        &lt/div&gt
+
+        &lt/div&gt
+        &lt/div&gt
+        &ltdiv class="col-3 offset-2"&gt
+        &lth2 class="text-center "&gtDemo&lt/h2&gt
+        &lt!--&lth3&gtFizzbuzz&lt/h3&gt--&gt
+        &ltdiv class="input-group"&gt
+        &ltdiv class="input-group-prepend"&gt
+        &ltspan class="input-group-text" id=""&gtMultiples&lt/span&gt
+        &lt/div&gt
+        &ltinput type="number" id="fizz1"&gt
+        &ltinput type="number" id="fizz2"&gt
+
+        &lt/div&gt
+        &ltdiv class="input-group"&gt
+        &ltdiv class="input-group-prepend"&gt
+        &ltspan class="input-group-text" id=""&gtRange&lt/span&gt
+        &lt/div&gt
+        &ltinput type="number" id="start"&gt
+        &ltinput type="number" id="end"&gt
+        &lt/div&gt
+        &ltbutton class="btn btn-primary" id="fizzBtn"&gtfizzbuzz&lt/button&gt
+        &lt/div&gt
+        &lt/div&gt
+        &lt/div&gt
+        &ltdiv id="myModal" class="modal fade" role="dialog"&gt
+        &ltdiv class="modal-dialog"&gt
+        &ltdiv class="modal-content"&gt
+        &ltdiv class="modal-header"&gt
+        &ltbutton type="button" class="close" data-dismiss="modal"&gt&times;&lt/button&gt
+        &lth4 class="modal-title"&gt&lt/h4&gt
+        &lt/div&gt
+        &ltdiv class="modal-body"&gt
+        &ltspan id="resultfb"&gt&lt/span&gt
+        &lt/div&gt
+        &ltdiv class="modal-footer"&gt
+        &ltbutton type="button" class="btn btn-default" data-dismiss="modal"&gtClose&lt/button&gt
+        &lt/div&gt
+        &lt/div&gt
+
+        &lt/div&gt
+        &lt/div&gt
+        &lt/section&gt
+        &ltsection id="contact"&gt
+        &ltdiv class="row"&gt
+        &ltdiv class=" col-xs-12 col-sm-8 offset-sm-1 offset-sm-2"&gt
+        &ltdiv class="col-inner ts-20"&gt
+        &ltdiv class="block-title"&gt
+        &lth3&gtGet in touch with me!&lt/h3&gt
+        &lt/div&gt
+
+        &ltform id="contact_form" class="contact-form"&gt
+
+        &ltdiv class="messages"&gt&lt/div&gt
+
+        &ltdiv class="controls two-columns"&gt
+        &ltdiv class="fields clearfix"&gt
+        &ltdiv class="left-column"&gt
+        &ltdiv class="form-group form-group-with-icon"&gt
+        &ltinput id="form_name" type="text" name="name" class="form-control" placeholder="Full Name" required="required" data-error="Name is required."&gt
+        &ltdiv class="form-control-border"&gt&lt/div&gt
+        &ltdiv class="help-block with-errors"&gt&lt/div&gt
+        &lt/div&gt
+
+        &ltdiv class="form-group form-group-with-icon"&gt
+        &ltinput id="form_email" type="email" name="email" class="form-control" placeholder="Email Address" required="required" data-error="Valid email is required."&gt
+        &ltdiv class="form-control-border"&gt&lt/div&gt
+        &ltdiv class="help-block with-errors"&gt&lt/div&gt
+        &lt/div&gt
+
+        &ltdiv class="form-group form-group-with-icon"&gt
+        &ltinput id="form_subject" type="text" name="subject" class="form-control" placeholder="Subject" required="required" data-error="Subject is required."&gt
+        &ltdiv class="form-control-border"&gt&lt/div&gt
+        &ltdiv class="help-block with-errors"&gt&lt/div&gt
+        &lt/div&gt
+        &lt/div&gt
+        &ltdiv class="right-column"&gt
+        &ltdiv class="form-group form-group-with-icon"&gt
+        &lttextarea id="form_message" name="message" class="form-control" placeholder="Message" rows="7" required="required" data-error="Please, leave me a message."&gt&lt/textarea&gt
+        &ltdiv class="form-control-border"&gt&lt/div&gt
+        &ltdiv class="help-block with-errors"&gt&lt/div&gt
+        &lt/div&gt
+        &lt/div&gt
+        &lt/div&gt
+
+        &ltinput type="submit" id="button" class="button btn-send" value="Send message"&gt
+        &lt/div&gt
+        &lt/form&gt
+        &lt/div&gt
+        &lt/div&gt
+        &lt/div&gt
+        &lt/section&gt
+
+        &lt!-- Footer --&gt
+        &ltfooter class="py-5 bg-dark"&gt
+        &ltdiv class="container"&gt
+        &ltp class="m-0 text-center text-white"&gtCopyright &copy; Fizzbuzz 2020&lt/p&gt
+        &lt/div&gt
+        &lt!-- /.container --&gt
+        &lt/footer&gt
+        &ltscript src="scripts/prism.js"&gt&lt/script&gt
+        &ltscript&gt
+        document.getElementById("fizzBtn").addEventListener('click', function () {
+        let userNum1 = parseInt(document.getElementById("fizz1").value);
+        let userNum2 = parseInt(document.getElementById("fizz2").value);
+        let rangeStart = parseInt(document.getElementById("start").value);
+        let rangeEnd = parseInt(document.getElementById("end").value);
+        if (isNaN(userNum1) || isNaN(userNum2) || isNaN(rangeStart) || isNaN(rangeEnd)) {
+        alert("Need numbers!");
+        }
+        else {
+        fizzbuzz(userNum1, userNum2, rangeStart, rangeEnd);
+        $("#myModal").modal();
+        }
+        })
+        &lt/script&gt
+        &lt!-- Bootstrap core JavaScript --&gt
+        &ltscript src="scripts/custom.js"&gt&lt/script&gt
+        &ltscript src="scripts/jquery.min.js"&gt&lt/script&gt
+        &ltscript src="scripts/bootstrap.bundle.min.js"&gt&lt/script&gt
+        &ltscript src="https://cdn.jsdelivr.net/npm/sweetalert2@10"&gt&lt/script&gt
+        &ltscript type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"&gt&lt/script&gt
+        &ltscript type="text/javascript"&gtemailjs.init('user_cWPq5pgSsHexCuqAhcoTE')&lt/script&gt
+
+        &lt!-- Plugin JavaScript --&gt
+        &ltscript src="scripts/jquery.easing.min.js"&gt&lt/script&gt
+
+        &lt!-- Custom JavaScript for this theme --&gt
+        &ltscript src="scripts/scrolling-nav.js"&gt&lt/script&gt
+
+        &ltscript&gt
+        const btn = document.getElementById('button');
+
+        document.getElementById('contact_form')
+        .addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        btn.value = 'Sending...';
+
+        const serviceID = 'default_service';
+        const templateID = 'template_ygrg1dn';
+
+        emailjs.sendForm(serviceID, templateID, this)
+        .then(() =&gt {
+        btn.value = 'Send Email';
+        Swal.fire(
+        'Good News!',
+        'Your Email Was Sent',
+        )
+        }, (err) =&gt {
+        btn.value = 'Send Email';
+        alert(JSON.stringify(err));
+        });
+        });&lt/script&gt
+
+        &lt/body&gt
+
+        &lt/html&gt
+    </code>
+</pre>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="cssModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog modal-lg">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Modal Header</h4>
+                            </div>
+                            <div class="modal-body">
+<pre>
+    <code class="language-css">
+        .fizzbuzzGradient {
+        font-size: 1em;
+        background: -webkit-linear-gradient(deepskyblue, deepskyblue, chartreuse);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        }
+        .fizz {
+        color: deepskyblue;
+        text-shadow: 1px 1px 1px #000;
+        }
+        .buzz {
+        color: chartreuse;
+        text-shadow: 1px 1px 1px #000;
+        }
+
+    </code>
+</pre>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <div class="col-3 offset-2">
@@ -197,6 +711,7 @@
         </div>
         <!-- /.container -->
     </footer>
+    <script src="scripts/prism.js"></script>
     <script>
         document.getElementById("fizzBtn").addEventListener('click', function () {
             let userNum1 = parseInt(document.getElementById("fizz1").value);
@@ -225,7 +740,7 @@
 
     <!-- Custom JavaScript for this theme -->
     <script src="scripts/scrolling-nav.js"></script>
-    <script src="scripts/prism.js"></script>
+
     <script>
         const btn = document.getElementById('button');
 
